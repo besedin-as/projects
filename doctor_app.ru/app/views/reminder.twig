@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+{% block header %}
+    reminder
+{% endblock %}
+{% block content %}
+<form action="/user/reminder" method="post">
+    {{ form_widget(reminderForm) }}
+    <input type="submit" name="submit" />
+</form>
+{% endblock %}

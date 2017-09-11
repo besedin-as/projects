@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block header %}
+    login
+{% endblock %}
+
+{% block content %}
+    <h1>Авторизация</h1>
+    <h2>{{ error }}</h2>
+    <form action="/user/login" method="post">
+        {{ form_widget(loginForm) }}
+        <input type="submit" name="submit" />
+    </form>
+    <a href="/user/reminder">Забыли пароль?</a>
+{% endblock %}

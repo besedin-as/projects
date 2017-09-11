@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block header %}{% endblock %}</title>
+</head>
+<body>
+    {#{% include 'header.twig' %}#}
+    {% block content %}
+    {% endblock %}
+    {#{% include 'footer.twig' %}#}
+</body>
+</html>

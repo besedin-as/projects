@@ -1,0 +1,42 @@
+{% extends 'layout.twig' %}
+
+{% block header %}
+    profile
+{% endblock %}
+
+{% block content %}
+    <h1>Редактирование данных</h1>
+    <form id="form" action="/" method="post">
+        <p>Имя <input type="text" name="first_name" maxlength="100"/>
+        <p>Фамилия <input type="text" name="last_name" maxlength="100"/>
+        <p>Отчество <input type="text" name="patronymic" maxlength="100"/>
+        <p>Основное медицинское направление <select name="direction">
+                <option disabled>Направление</option>
+                {% for direction in directions %}
+                    <option>{{ direction.direction }}</option>
+                {% endfor %}
+            </select>
+        <p>Образование <textarea name="education" maxlength="1000"></textarea>
+        <p>Научная степень <select name="science_degree">
+                <option disabled>Научная степень</option>
+                <option>Нет</option>
+                <option>Кандидат наук</option>
+                <option>Доктор наук</option>
+            </select>
+        <p>Телефон <input id="phone" type="text" name="phone" value=""/>
+        <p>Дополнительные контакты <textarea name="add_contacts" maxlength="1000"></textarea>
+        <p>Место работы <input name="place_work" type="text" maxlength="100"/>
+        <p><input type="submit" name="submit"/>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="{{ global.request.basepath }}/js/jquery.inputmask.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#phone").inputmask("+7(999)999-99-99");
+        });
+    </script>
+    <a href="/user/login">Выйти</a>
+{% endblock %}
